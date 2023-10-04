@@ -71,6 +71,7 @@ function guardoUsuYPass(usu, pass) {
           );
 
           usuario.affiliate.affiliates.forEach((objeto, indice) => {
+            console.log("Familiar: ", indice, " Nombre: ", objeto.name);
             objeto.birthDateFormateado = formateoFecha(objeto.birthDate);
 
             objeto.age = calcularEdad(objeto.birthDate);
