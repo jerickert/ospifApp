@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>
+      OSPIF - Obra Social del Personal de la Industria del Fibrocemento de la
+      República Argentina
+    </title>
+
+    <!-- Bootstrap core CSS -->
+    <!--   <link href="https://cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Font Icon CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <!-- Custom styles for this template -->
+    <link href="../OSPIF.css" rel="stylesheet" />
+    <link rel="manifest" href="../manifest.json" />
+  </head>
+  <body>
+    <script src="../js/app.js"></script>
+    <nav class="navbar navbar-fixed-top navbar-light bg-light">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            aria-expanded="false"
+            aria-controls="navbar"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar" style="background-color: #888"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">
+            <img src="../images/iso_small.png" />OSPIF
+          </div>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><!-- <a href="home.html">INICIO</a> --></li>
+            <li><a href="credencial.html">Mi Credencial</a></li>
+            <li>
+              <a href="grupo.html" id="miGrupoFamiliar">Mi Grupo Familiar</a>
+            </li>
+            <li><a href="perfil.html">Mi Perfil</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="salir.html">Salir</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div id="Perfil" class="container">
+      <h3>Mi Perfil</h3>
+      <div class="card perfil clearfix">
+        <img id="foto" />
+        <div class="datos">
+          <h4 id="ApellidoYNombre"></h4>
+          <p id="AfiliadoNro"></p>
+          <h4 id="AfiliadoRelacion"></h4>
+        </div>
+        <div class="datos">
+          <ul>
+            <li id="tipoYNroDoc"></li>
+            <li id="fechaNacimiento"></li>
+            <li id="edad"></li>
+            <li id="plan"></li>
+            <li id="estadoPlan"></li>
+            <li id="fechaIngreso"></li>
+            <li id="empresa"></li>
+            <li id="telefono"><i class="bi bi-pencil-square"></i></li>
+            <li id="telefonoCelular"></li>
+            <li id="email"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <p>
+        Obra Social del Personal de la Industria del Fibrocemento de la
+        República Argentina <br />
+        Inscrip. RNOS N° 107800 RNEMP N° 614982 - Ley N° 23660
+      </p>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write('<script src="assets/js/jquery.min.js"><\/script>');
+    </script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../js/delLocalStorageAmiPerfil.js"></script>
+    <!--     <script>
+          cambiarContrasena = () =>{
+        console.log("presiones contrasena")
+      };
+      modificarContrasena.addEventListener("click",cambiarContrasena());
+  
+    </script> -->
+  </body>
+</html>

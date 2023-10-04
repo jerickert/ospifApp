@@ -1,0 +1,6 @@
+.formulario .error {
+    display: none;
+    background-color: brown;
+    color: aliceblue;
+    padding: 15px 10px;
+}

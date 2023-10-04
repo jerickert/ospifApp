@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>
+      OSPIF - Obra Social del Personal de la Industria del Fibrocemento de la
+      República Argentina
+    </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Font Icon CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <!-- Custom styles for this template -->
+    <link href="../OSPIF.css" rel="stylesheet" />
+    <link rel="manifest" href="../manifest.json" />
+  </head>
+
+  <body>
+    <script src="../js/app.js"></script>
+    <nav class="navbar navbar-fixed-top navbar-light bg-light">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            aria-expanded="false"
+            aria-controls="navbar"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar" style="background-color: #888"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">
+            <img src="../images/iso_small.png" />OSPIF
+          </div>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><!-- <a href="home.html">INICIO</a> --></li>
+            <li><a href="credencial.html">Mi Credencial</a></li>
+            <li><a href="grupo.html">Mi Grupo Familiar</a></li>
+            <li><a href="perfil.html">Mi Perfil</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="salir.html">Salir</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div id="grupo" class="container"></div>
+    <!-- /.container -->
+    <div id="footer">
+      <p>
+        Obra Social del Personal de la Industria del Fibrocemento de la
+        República Argentina <br />
+        Inscrip. RNOS N° 107800 RNEMP N° 614982 - Ley N° 23660
+      </p>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write('<script src="../assets/js/jquery.min.js"><\/script>');
+    </script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Include Handlebars from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <script id="afiliado-template" type="text/x-handlebars-template">
+      <div class="card grupo clearfix">
+        <img id="foto_{{afiliado.id}}" src="{{afiliado.photo}}" />
+        <div class="datos">
+          <!-- ESTOS SON LOS DATOS QUE SE MUESTRAN EN CADA TARJETA DEL GRUPO FAMILIAR -->
+          <h4>{{afiliado.name}}</h4>
+          <p>{{afiliado.relationship}}</p>
+          <p>Afiliado N° {{afiliado.affiliateNumber}}</p>
+          <p>{{afiliado.documentType}}: {{afiliado.documentId}}</p>
+          <h5>Estado: {{afiliado.status}}</h5>
+          <h6>Plan: {{afiliado.namePlan}}</h6>
+          <h5>Fecha de Nacimiento: {{afiliado.birthDateFormateado}}</h5>
+          <h5>Edad: {{afiliado.age}}</h5>
+        </div>
+      </div>
+    </script>
+
+    <script id="grupo-template" type="text/x-handlebars-template">
+      <h3>Grupo Familiar</h3>
+      {{#each afiliados}}
+        <div>{{>afiliado afiliado=.}}</div>
+      {{/each}}
+    </script>
+
+    <script src=".././js/main.js"></script>
+    <script src=".././js/actualizoFotosUsuario.js"></script>
+    <script type="text/javascript">
+      //  Template para titular: carga solo una card
+      var templateAfiliado = Handlebars.compile($("#afiliado-template").html());
+
+      //  Template para cada miembro del grupo familiar: itera el grupo y carga n cards
+      var templateGrupo = Handlebars.compile($("#grupo-template").html());
+
+      Handlebars.registerPartial("afiliado", templateAfiliado);
+
+      var contextoAfiliado = { afiliado: afiliado };
+      var contextoGrupo = { afiliados: grupoFamiliar }; //esto lo toma de actualizoFotosUsuario.js
+
+      var tarjetaTitular = templateAfiliado(contextoAfiliado);
+      var tarjetasGrupo = templateGrupo(contextoGrupo);
+
+      $("#grupo").append(tarjetaTitular).append(tarjetasGrupo);
+    </script>
+  </body>
+</html>

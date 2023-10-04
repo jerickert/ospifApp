@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>
+      Login OSPIF - Obra Social del Personal de la Industria del Fibrocemento de
+      la República Argentina
+    </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="../OSPIF.css" rel="stylesheet" />
+    <link rel="manifest" href="../manifest.json" />
+  </head>
+  <script src="../js/app.js"></script>
+  <body>
+    <div class="container">
+      <div class="splash">
+        <img src="../images/iso_home.png" class="center-block" />
+      </div>
+      <div class="mb-3 login">
+        <label for="formGroupLogin" class="form-label">Usuario</label>
+        <input
+          type="text"
+          class="form-control"
+          id="User_Input"
+          placeholder="Ingresa tu usuario"
+        />
+      </div>
+      <div class="mb-3 login">
+        <label for="formGroupLogin" class="form-label">Contraseña</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Password_Input"
+          placeholder="Ingresa tu contraseña"
+        />
+      </div>
+      <div id="links">
+        <!-- <p><a class="ingresar" onclick="capturoUsuyPass()">Ingresar</a></p> -->
+        <!-- Agrega el ID "ingresar-link" y el evento onclick -->
+        <p><a class="ingresar" href="#" id="ingresar-link">Ingresar</a></p>
+
+        <!-- <p><a class="warning" href="">Recupera tu usuario o contraseña </a></p> -->
+        <!-- <p><a href="">CREAR USUARIO</a></p> -->
+      </div>
+    </div>
+    <!-- /.container -->
+    <div id="footer">
+      <p>
+        Obra Social del Personal de la Industria del Fibrocemento de la
+        República Argentina
+      </p>
+      <p>Inscrip. RNOS N° 107800 RNEMP N° 614982 - Ley N° 23660</p>
+    </div>
+    <!--  <script src="js/app.js"></script> -->
+    <!-- CARGO EL SERVICE WORKER -->
+    <!--    <script src="js/capturoUsuyPass.js"></script> -->
+    <script>
+      // Verificar si existe el valor "token" en el localStorage
+      if (localStorage.getItem("token")) {
+        // El valor "token" existe en el localStorage
+        console.log("El token está guardado en el localStorage.");
+        // Puedes hacer algo con el token aquí
+        console.log(JSON.parse(localStorage.getItem("token")));
+      } else {
+        // El valor "token" no existe en el localStorage
+
+        // Selecciona el enlace de "Ingresar" por su ID
+        const ingresarLink = document.getElementById("ingresar-link");
+
+        // Agrega un evento clic al enlace
+        ingresarLink.addEventListener("click", function (event) {
+          event.preventDefault(); // Evita que se recargue la página al hacer clic en el enlace
+
+          // Captura los valores de usuario y contraseña
+          const usuLogin = document.getElementById("User_Input").value;
+          const passLogin = document.getElementById("Password_Input").value;
+
+          guardoUsuYPass(usuLogin, passLogin);
+        });
+      }
+    </script>
+
+    <!-- <script src="js/app.js"></script> -->
+    <!-- CARGO EL SERVICE WORKER -->
+    <script src="../js/voyBackGuardoLocalStorage.js"></script>
+  </body>
+</html>
