@@ -1,4 +1,4 @@
-function guardoUsuYPass(usu, pass) {  
+function guardoUsuYPass(usu, pass) {
   if (typeof Storage == "undefined") {
     document.write(
       "Inconvenientes con LocalStorage, comunicarse con atencion al cliente"
@@ -35,28 +35,25 @@ function guardoUsuYPass(usu, pass) {
           if (respuesta.errors.email) {
             function timeout(ms) {
               return new Promise((resolve, reject) => {
-                  setTimeout(resolve, ms);
+                setTimeout(resolve, ms);
               });
-          }
+            }
             console.log("email incorrecto ");
             var div = document.getElementById("miDiv");
             div.style.display = "block";
-            timeout(2500) 
-            .then(() => {
-              window.location.href = "../pages/login.html";
-            })
-            .catch((error) => {
+            timeout(2500)
+              .then(() => {
+                window.location.href = "../pages/login.html";
+              })
+              .catch((error) => {
                 console.error("Ocurrió un error:", error);
-            });
-            
-
+              });
           } else {
             console.log("pass incorrecta ");
           }
-
         } else {
           const token = JSON.stringify(respuesta.token);
-        
+
           const usuario = respuesta.user;
           const usuarioDni = usuario.affiliate.documentId;
           var repetido = [];
@@ -98,7 +95,12 @@ function guardoUsuYPass(usu, pass) {
               usuario.affiliate.affiliates
             );
           }
-          var fechaActual = new Date();
+            var fechaActual = new Date();
+            
+          /* BORRO LA FAMILIA SI NO ESTA ACTIVO */
+          if (usuario.affiliate.status !== "Activo") {
+            delete usuario.affiliate.affiliates;
+          }
 
           localStorage.setItem("token", token);
           localStorage.setItem("usuario", JSON.stringify(usuario));
@@ -110,7 +112,6 @@ function guardoUsuYPass(usu, pass) {
 
           localStorage.setItem("fechatoken", fechaActual);
 
-          
           window.location.href = "../pages/credencial.html";
         }
       })

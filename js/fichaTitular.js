@@ -32,7 +32,7 @@ function muestroFicha() {
     datosTitular.affiliate.documentType +
     ": " +
     datosTitular.affiliate.documentId;
-  AfiliadoRelacion = datosTitular.affiliate.relationship.name;
+  /* AfiliadoRelacion = datosTitular.affiliate.relationship.name; */
 
   fechaNac =
     "Fecha de Nacimiento: " + datosTitular.affiliate.birthDateFormateado;
