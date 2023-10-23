@@ -1,4 +1,4 @@
-function guardoUsuYPass(usu, pass) {
+function guardoUsuYPass(usu, pass) {  
   if (typeof Storage == "undefined") {
     document.write(
       "Inconvenientes con LocalStorage, comunicarse con atencion al cliente"
@@ -56,6 +56,7 @@ function guardoUsuYPass(usu, pass) {
 
         } else {
           const token = JSON.stringify(respuesta.token);
+        
           const usuario = respuesta.user;
           const usuarioDni = usuario.affiliate.documentId;
           var repetido = [];

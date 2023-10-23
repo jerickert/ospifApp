@@ -1,5 +1,5 @@
 function muestroFicha() {
-  var ApellidoYNombre, fechaNac;
+  var ApellidoYNombre, AfiliadoRelacion, fechaNac;
   var AfiliadoNumero,
     doc,
     plan,
@@ -9,10 +9,10 @@ function muestroFicha() {
     fechaIngreso;
 
   let datosTitular = JSON.parse(localStorage.getItem("usuario"));
-
+  console.log("datos tiular en ficha titular linea 12", datosTitular);
   const fotoElement = document.getElementById("foto");
 
-   if (
+  if (
     datosTitular.affiliate.photoHex === null ||
     datosTitular.affiliate.photoHex === undefined
   ) {
@@ -21,9 +21,10 @@ function muestroFicha() {
     fotoElement.src = fotoDefault;
   } else {
     fotoElement.src = obtenerFotoSrc(datosTitular.affiliate.photoHex);
-  } 
+  }
 
   /* CARGO LAS VARIABLES DESDE EL localStorage */
+
   ApellidoYNombre = datosTitular.affiliate.name;
   AfiliadoNumero = "Afiliado N°: ";
   AfiliadoNumero += datosTitular.affiliate.affiliateNumber;
@@ -31,7 +32,7 @@ function muestroFicha() {
     datosTitular.affiliate.documentType +
     ": " +
     datosTitular.affiliate.documentId;
-  AfiliadoRelacion = datosTitular.affiliate.relationship;
+  AfiliadoRelacion = datosTitular.affiliate.relationship.name;
 
   fechaNac =
     "Fecha de Nacimiento: " + datosTitular.affiliate.birthDateFormateado;

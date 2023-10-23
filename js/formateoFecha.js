@@ -3,5 +3,6 @@ function formateoFecha(fecha) {
   mes = fecha.substring(5, 7);
   anio = fecha.substring(0, 4);
   nuevaFecha = dia + "/" + mes + "/" + anio;
+  
   return nuevaFecha;
 }

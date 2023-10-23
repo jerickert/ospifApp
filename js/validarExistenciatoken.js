@@ -43,6 +43,9 @@ if (token !== null && token !== undefined) {
         );
         console.log("response.json: ", response.json());
         console.error("Error en la solicitud:", response.statusText);
+        console.error("TOKEN VENCIDO, OBRO LOGIN");
+         
+         window.location.href = "../pages/login.html";
       }
     })
 

@@ -69,7 +69,7 @@
   document.getElementById("AfiliadoNro").textContent =
     "Afiliado N°: " + datosTitular.affiliate.affiliateNumber;
   document.getElementById("AfiliadoRelacion").textContent =
-    datosTitular.affiliate.relationship;
+    datosTitular.affiliate.relationship.name;
 
   document.getElementById("tipoYNroDoc").textContent =
     datosTitular.affiliate.documentType +
@@ -84,7 +84,7 @@
   document.getElementById("email").textContent =
     "email: " + datosTitular.affiliate.email;
   document.getElementById("empresa").textContent =
-    "Empresa: " + datosTitular.affiliate.company;
+    "Empresa: " + datosTitular.affiliate.company.name;
   document.getElementById("fechaIngreso").textContent =
     "Fecha de Ingreso: " + datosTitular.affiliate.registerDateFormateado;
   document.getElementById("fechaNacimiento").textContent =
