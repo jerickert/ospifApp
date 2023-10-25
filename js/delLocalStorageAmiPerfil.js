@@ -21,11 +21,12 @@
     return src;
   };
 
-  var datosTitular, telefono, telefonoCelular;
+  var datosTitular, telefono, telefonoCelular, status;
 
   datosTitular = JSON.parse(localStorage.getItem("usuario"));
   console.log("datos titular en perfil: ", datosTitular);
   const fotoElement = document.getElementById("foto");
+  let status = datosTitular.affiliate.status;
 
   if (
     datosTitular.affiliate.photoHex === null ||
@@ -62,6 +63,17 @@
       // Verifica que el elemento exista
       miGrupoFamiliar.style.display = "none";
     }
+  }
+
+  // Verifica si la variable nombre está vacía
+  if (status !== "Activo") {
+       var elemento = document.getElementById("ApellidoYNombre");
+
+    // Aplica un estilo CSS al elemento
+    elemento.style.color = "blue"; // Cambia el color del texto a azul
+    elemento.style.fontWeight = "bold"; // Establece la negrita
+    elemento.style.fontSize = "16px"; // Establece el tamaño de fuente
+    // Puedes agregar más estilos de la misma manera
   }
 
   document.getElementById("ApellidoYNombre").textContent =
