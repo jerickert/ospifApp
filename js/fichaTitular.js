@@ -18,13 +18,14 @@ function muestroFicha() {
   telefono = datosTitular.affiliate.telephone;
 
   function formateoTelefonos() {
-    if (telefono == null) {
+    if (telefono == null || typeof telefono == "string") {
       telefono = "Telefono: sin dato";
     } else {
       telefono = "Telefono: " + telefono;
     }
-    telefonoCelular = datosTitular.affiliate.cellphone;
-    if (telefonoCelular == null) {
+      telefonoCelular = datosTitular.affiliate.cellphone;
+      
+    if (telefonoCelular == null || typeof telefonoCelular == "string") {
       telefonoCelular = "Teléfono celular: sin dato";
     } else {
       telefonoCelular = "Teléfono celular: " + telefonoCelular;
@@ -45,19 +46,20 @@ function muestroFicha() {
   }
   const arrayFamiliar = datosTitular.affiliate.affiliates;
 
+  function desactivoFamilia() {
+    const miGrupoFamiliar = document.getElementById("miGrupoFamiliar");
+    miGrupoFamiliar.style.display = "none";
+    console.log("sin array familiar", arrayFamiliar);
+  }
+
   function evaluoGrupoFamiliar() {
-    if (typeof arrayFamiliar !== "undefined") {
-      cantFlia = arrayFamiliar.length;
-      if (cantFlia === 0) {
-        // Si es nula, oculta el elemento con la clase "ocultar-elemento"
-        const miGrupoFamiliar = document.getElementById("miGrupoFamiliar");
-        if (miGrupoFamiliar) {
-          // Verifica que el elemento exista
-          miGrupoFamiliar.style.display = "none";
-        }
-      }
+    if (typeof arrayFamiliar == "undefined") {
+      desactivoFamilia();
     } else {
-      console.log("sin array familiar", arrayFamiliar);
+      cantFlia = arrayFamiliar.length;
+      if (cantFlia == 0) {
+        desactivoFamilia();
+      }
     }
   }
 
@@ -93,7 +95,8 @@ function muestroFicha() {
     doc =
       datosTitular.affiliate.documentType +
       ": " +
-      datosTitular.affiliate.documentId;
+        datosTitular.affiliate.documentId;
+      empresa = "Empresa: " + datosTitular.affiliate.company.name;
     document.getElementById("ApellidoYNombre").textContent = ApellidoYNombre;
     document.getElementById("AfiliadoNro").textContent = AfiliadoNumero;
     document.getElementById("AfiliadoRelacion").textContent = AfiliadoRelacion;
@@ -102,7 +105,9 @@ function muestroFicha() {
     document.getElementById("tipoYNroDoc").textContent = doc;
     document.getElementById("telefono").textContent = telefono;
     document.getElementById("telefonoCelular").textContent = telefonoCelular;
-    document.getElementById("plan").textContent = plan;
+      document.getElementById("plan").textContent = plan;
+      document.getElementById("empresa").textContent = empresa;
+      
     document.getElementById("estadoPlan").textContent = estadoPlan;
     document.getElementById("fechaIngreso").textContent = fechaIngreso;
   }
