@@ -74,10 +74,15 @@
           <h4 id="ApellidoYNombre"></h4>
           <p id="AfiliadoNro"></p>
           <h4 id="AfiliadoRelacion"></h4>
-          
         </div>
         <div class="datos">
-          <ul>
+          <style>
+            ul.scrollable-list {
+              max-height: 400px;
+              overflow: auto;
+            }
+          </style>
+          <ul class="scrollable-list">
             <li id="tipoYNroDoc"></li>
             <li id="fechaDeNacimiento"></li>
             <li id="telefono"></li>

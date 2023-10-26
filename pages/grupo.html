@@ -88,13 +88,14 @@
         <div class="datos">
           <!-- ESTOS SON LOS DATOS QUE SE MUESTRAN EN CADA TARJETA DEL GRUPO FAMILIAR -->
           <h4>{{afiliado.name}}</h4>
-          <p>{{afiliado.relationship}}</p>
+          <p>{{afiliado.relationship.name}}</p>
           <p>Afiliado N° {{afiliado.affiliateNumber}}</p>
           <p>{{afiliado.documentType}}: {{afiliado.documentId}}</p>
           <h5>Estado: {{afiliado.status}}</h5>
           <h6>Plan: {{afiliado.namePlan}}</h6>
           <h5>Fecha de Nacimiento: {{afiliado.birthDateFormateado}}</h5>
           <h5>Edad: {{afiliado.age}}</h5>
+          <h5>Empresa: {{afiliado.company.name}}</h5>
         </div>
       </div>
     </script>

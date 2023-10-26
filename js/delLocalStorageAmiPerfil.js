@@ -21,12 +21,12 @@
     return src;
   };
 
-  var datosTitular, telefono, telefonoCelular, status;
+  var datosTitular, telefono, telefonoCelular;
 
   datosTitular = JSON.parse(localStorage.getItem("usuario"));
   console.log("datos titular en perfil: ", datosTitular);
   const fotoElement = document.getElementById("foto");
-  let status = datosTitular.affiliate.status;
+  let status = datosTitular.affiliate.statusPlan;
 
   if (
     datosTitular.affiliate.photoHex === null ||
@@ -67,7 +67,7 @@
 
   // Verifica si la variable nombre está vacía
   if (status !== "Activo") {
-       var elemento = document.getElementById("ApellidoYNombre");
+    var elemento = document.getElementById("ApellidoYNombre");
 
     // Aplica un estilo CSS al elemento
     elemento.style.color = "blue"; // Cambia el color del texto a azul

@@ -9,13 +9,12 @@ function muestroFicha() {
     fechaIngreso;
 
   let datosTitular = JSON.parse(localStorage.getItem("usuario"));
-
-  console.log("datos tiular en ficha titular linea 12", datosTitular);
-
   const fotoElement = document.getElementById("foto");
-
   let status = datosTitular.affiliate.status;
   telefono = datosTitular.affiliate.telephone;
+  const arrayFamiliar = datosTitular.affiliate.affiliates;
+
+  console.log("datos tiular en ficha titular linea 12", datosTitular);
 
   function formateoTelefonos() {
     if (telefono == null || typeof telefono == "string") {
@@ -23,8 +22,8 @@ function muestroFicha() {
     } else {
       telefono = "Telefono: " + telefono;
     }
-      telefonoCelular = datosTitular.affiliate.cellphone;
-      
+    telefonoCelular = datosTitular.affiliate.cellphone;
+
     if (telefonoCelular == null || typeof telefonoCelular == "string") {
       telefonoCelular = "Teléfono celular: sin dato";
     } else {
@@ -44,7 +43,6 @@ function muestroFicha() {
       fotoElement.src = obtenerFotoSrc(datosTitular.affiliate.photoHex);
     }
   }
-  const arrayFamiliar = datosTitular.affiliate.affiliates;
 
   function desactivoFamilia() {
     const miGrupoFamiliar = document.getElementById("miGrupoFamiliar");
@@ -73,14 +71,14 @@ function muestroFicha() {
       "Fecha de ingreso: " + datosTitular.affiliate.registerDateFormateado;
     console.log("afiliados del grupo, ", datosTitular.affiliate.affiliates);
   }
+
   function evaluoEstadoPlan() {
     var elementoH4 = document.getElementById("ApellidoYNombre");
     var estadoAfiliadoNro = document.getElementById("AfiliadoNro");
     var estadoDelPlan = document.getElementById("estadoPlan");
     var estadoAfiliadoRelacion = document.getElementById("AfiliadoRelacion");
-    // Verifica si la variable nombre está vacía
+
     if (status !== "Activo") {
-      // Aplica un estilo CSS al elemento si la variable está vacía
       elementoH4.style.color = "red";
       estadoAfiliadoNro.style.color = "red";
       estadoDelPlan.style.color = "red";
@@ -95,8 +93,9 @@ function muestroFicha() {
     doc =
       datosTitular.affiliate.documentType +
       ": " +
-        datosTitular.affiliate.documentId;
-      empresa = "Empresa: " + datosTitular.affiliate.company.name;
+      datosTitular.affiliate.documentId;
+    empresa = "Empresa: " + datosTitular.affiliate.company.name;
+
     document.getElementById("ApellidoYNombre").textContent = ApellidoYNombre;
     document.getElementById("AfiliadoNro").textContent = AfiliadoNumero;
     document.getElementById("AfiliadoRelacion").textContent = AfiliadoRelacion;
@@ -105,13 +104,12 @@ function muestroFicha() {
     document.getElementById("tipoYNroDoc").textContent = doc;
     document.getElementById("telefono").textContent = telefono;
     document.getElementById("telefonoCelular").textContent = telefonoCelular;
-      document.getElementById("plan").textContent = plan;
-      document.getElementById("empresa").textContent = empresa;
-      
+    document.getElementById("plan").textContent = plan;
+    document.getElementById("empresa").textContent = empresa;
     document.getElementById("estadoPlan").textContent = estadoPlan;
     document.getElementById("fechaIngreso").textContent = fechaIngreso;
   }
-  /* CARGO LAS VARIABLES DESDE EL localStorage */
+
   formateoFotos();
   formateoFechas();
   formateoTelefonos();
