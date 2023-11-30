@@ -88,12 +88,12 @@ div.login label{
     background-position: center bottom;
     background-repeat: no-repeat;
     width: 100%;
-    height: 40vh;
+    height: 15vh; /* antes, 40vh */
     position: absolute;
     left: 0;
     bottom: 0;
     background-size: 100%;
-    padding-top: 20vh;
+    padding-top: 30vh;
 	z-index:-1;
 }
 #footer p {
@@ -102,7 +102,7 @@ div.login label{
 	width:100vw;
 	text-align: center;
 	position:absolute;
-	bottom:8vh;
+	bottom:4vh;
 	padding:0 1vh;
 }
 #error {
@@ -296,4 +296,8 @@ h3 {text-transform: capitalize; font-style: italic; font-weight:lighter; font-si
  padding:.5vh 1vh;
  margin-bottom:3vh;
 }
-#grupo.container{max-height:70vh; overflow-x:auto;}
+#grupo.container{max-height:75vh; overflow-x:auto;} /* antes 70vh */
+#Credencial.container {
+	max-height: 200vh;
+	overflow-x: auto;
+}
